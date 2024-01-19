@@ -25,6 +25,7 @@ st.set_page_config(
     page_title="Multipage Volatility Dashboard",
     page_icon="📈",
 )
+st.sidebar.image('1.png', width=100)
 
 selected_lang = st.sidebar.selectbox("Language", options=list(languages.keys()))
 
