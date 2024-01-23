@@ -202,28 +202,7 @@ with tab1:
         st.markdown(f'<span style="color: blue;">{texts["std_deviation_of_volatility"]} {day_std_volatility:.5},</span><br>'f'<center><span style="color: green;">{day_pct_std_volatility:.2f}%</span>', unsafe_allow_html=True)
         
     st.write(f"{texts['previous_day']}: ", data.index[-2])
-    if day_volatility > day_average_volatility *(1+v_alert):
-        st.markdown(f"""
-        <span style="font-size: 34px; color: red;">
-        {texts["sell"]}
-        </span>
-        """, unsafe_allow_html=True)
-        st.markdown(f"""
-        <span style="font-size: 24px; color: red;">
-        {texts["previous_day_volatility"]}: {day_volatility} {texts["is_higher_than"]} {texts["average_volatility"]}: {day_average_volatility}
-        </span>
-        """, unsafe_allow_html=True)
-    elif day_volatility < day_average_volatility *(1-v_alert):
-        st.markdown(f"""
-        <span style="font-size: 34px; color: green;">
-        {texts["buy"]}
-        </span>
-        """, unsafe_allow_html=True)
-        st.markdown(f"""
-        <span style="font-size: 24px; color: green;">
-        {texts["previous_day_volatility"]}: {day_volatility} {texts["is_lower_than"]} {texts["average_volatility"]}: {day_average_volatility}
-        </span>
-        """, unsafe_allow_html=True)
+
     
 
 
@@ -315,28 +294,7 @@ with tab2:
 
     st.write("_________________________")
 
-    if day_volatility > day_average_volatility *(1+v_alert):
-        st.markdown(f"""
-        <span style="font-size: 34px; color: red;">
-        {texts["sell"]}
-        </span>
-        """, unsafe_allow_html=True)
-        st.markdown(f"""
-        <span style="font-size: 24px; color: red;">
-        {texts['previous_x_day'].format(x_days)}: {day_x_volatility} {texts["is_higher_than"]} {texts["average_volatility"]}: {day_x_average_volatility}
-        </span>
-        """, unsafe_allow_html=True)
-    elif day_volatility < day_average_volatility *(1-v_alert):
-        st.markdown(f"""
-        <span style="font-size: 34px; color: green;">
-        {texts["buy"]}
-        </span>
-        """, unsafe_allow_html=True)
-        st.markdown(f"""
-        <span style="font-size: 24px; color: green;">
-        {texts['previous_x_day'].format(x_days)}: {day_x_volatility} {texts["is_lower_than"]} {texts["average_volatility"]}: {day_x_average_volatility}
-        </span>
-        """, unsafe_allow_html=True)
+
         
     csv = data.to_csv().encode('utf-8')
     st.download_button(
@@ -433,30 +391,7 @@ with tab3:
         st.markdown(f'<span style="color: blue;">{texts["std_deviation_of_volatility"]} {week_std_volatility:.5},</span><br>'f'<center><span style="color: green;">{week_pct_std_volatility:.2f}%</span>', unsafe_allow_html=True)
         
     st.write(f"{texts['previous_week']}: ", data.index[-2])
-    if day_volatility > day_average_volatility *(1+v_alert):
-        st.markdown(f"""
 
-                    
-        <span style="font-size: 34px; color: red;">
-        {texts["sell"]}
-        </span>
-        """, unsafe_allow_html=True)
-        st.markdown(f"""
-        <span style="font-size: 24px; color: red;">
-        {texts["previous_week_volatility"]}: {day_volatility} {texts["is_higher_than"]} {texts["average_volatility"]}: {day_average_volatility}
-        </span>
-        """, unsafe_allow_html=True)
-    elif day_volatility < day_average_volatility *(1-v_alert):
-        st.markdown(f"""
-        <span style="font-size: 34px; color: green;">
-        {texts["buy"]}
-        </span>
-        """, unsafe_allow_html=True)
-        st.markdown(f"""
-        <span style="font-size: 24px; color: green;">
-        {texts["previous_week_volatility"]}: {day_volatility} {texts["is_lower_than"]} {texts["average_volatility"]}: {day_average_volatility}
-        </span>
-        """, unsafe_allow_html=True)
 
     csv = data_wk.to_csv().encode('utf-8')
     st.download_button(
